@@ -21,6 +21,7 @@ namespace Autoskola
         {
             FormJizdy fj = new FormJizdy();
             fj.ShowDialog();
+            
         }
     }
 }
