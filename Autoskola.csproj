@@ -76,10 +76,19 @@
     <Compile Include="FormSystem.Designer.cs">
       <DependentUpon>FormSystem.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormVytvoritJizdu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormVytvoritJizdu.Designer.cs">
+      <DependentUpon>FormVytvoritJizdu.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormJizdy.resx">
+      <DependentUpon>FormJizdy.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormPrihlaseni.resx">
       <DependentUpon>FormPrihlaseni.cs</DependentUpon>
@@ -89,6 +98,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormSystem.resx">
       <DependentUpon>FormSystem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormVytvoritJizdu.resx">
+      <DependentUpon>FormVytvoritJizdu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
