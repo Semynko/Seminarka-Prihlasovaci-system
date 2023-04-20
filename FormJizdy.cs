@@ -13,8 +13,9 @@ namespace Autoskola
 {
     public partial class FormJizdy : Form
     {
+        
         private string[] jizdalist;
-        private string text;
+        public static string text;
         public FormJizdy()
         {
             InitializeComponent();
@@ -29,13 +30,14 @@ namespace Autoskola
             {
                 lbxSeznamJizd.Items.Add(jizdalist[i]);
                 //f
+
             }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //FormVytvoritJizdu fvj = new FormVytvoritJizdu();
-            //fvj.ShowDialog();
+            FormVytvoritJizdu fvj = new FormVytvoritJizdu();
+            fvj.ShowDialog();
         }
     }
 }
