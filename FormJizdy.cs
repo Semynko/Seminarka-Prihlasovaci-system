@@ -18,7 +18,7 @@ namespace Autoskola
         public FormJizdy()
         {
             InitializeComponent();
-            
+
             using (StreamReader sr = new StreamReader("jizdy.txt"))
             {
                 jizdalist = sr.ReadToEnd().Split('\n');
@@ -33,8 +33,8 @@ namespace Autoskola
 
         private void button1_Click(object sender, EventArgs e)
         {
-            FormVytvoritJizdu fvj = new FormVytvoritJizdu();
-            fvj.ShowDialog();
+            //FormVytvoritJizdu fvj = new FormVytvoritJizdu();
+            //fvj.ShowDialog();
         }
     }
 }
