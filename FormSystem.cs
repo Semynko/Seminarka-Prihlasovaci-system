@@ -19,8 +19,7 @@ namespace Autoskola
 
         private void button1_Click(object sender, EventArgs e)
         {
-            FormSystem fs = new FormSystem();
-            fs.Hide();
+
             FormJizdy fj = new FormJizdy();
             fj.ShowDialog();
             

@@ -102,4 +102,5 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.ListBox lbxSeznamJizd;
     }
+
 }
