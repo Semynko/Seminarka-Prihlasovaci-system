@@ -15,12 +15,17 @@ namespace Autoskola
         public FormVytvoritJizdu()
         {
             InitializeComponent();
+
+            //Nastavení DateTimePickeru na vybrání datumu i času
+            dtpJizda.Format = DateTimePickerFormat.Custom;
+            dtpJizda.CustomFormat = "dd/MM/yyyy  HH:mm";
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string s = FormJizdy.text;
-            MessageBox.Show(dtpJizda.Text);
+            FormJizdy.datum = dtpJizda.Text;
+            //MessageBox.Show(dtpJizda.Value.ToString());
+            FormJizdy.ZapsatNovouJizdu(dtpJizda.Value.ToString());
         }
     }
 }
