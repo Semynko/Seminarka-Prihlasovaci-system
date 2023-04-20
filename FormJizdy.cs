@@ -28,6 +28,7 @@ namespace Autoskola
             for (int i = 0; i < jizdalist.Length; i++)
             {
                 lbxSeznamJizd.Items.Add(jizdalist[i]);
+                //f
             }
         }
 
