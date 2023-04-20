@@ -66,6 +66,7 @@ namespace Autoskola
             this.buttonZapomel.TabIndex = 2;
             this.buttonZapomel.Text = "Zapomenuté heslo";
             this.buttonZapomel.UseVisualStyleBackColor = true;
+            this.buttonZapomel.Click += new System.EventHandler(this.buttonZapomel_Click);
             // 
             // label1
             // 

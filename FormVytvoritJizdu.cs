@@ -10,20 +10,15 @@ using System.Windows.Forms;
 
 namespace Autoskola
 {
-    public partial class FormSystem : Form
+    public partial class FormVytvoritJizdu : Form
     {
-        public FormSystem()
+        public FormVytvoritJizdu()
         {
             InitializeComponent();
         }
-
-        private void button1_Click(object sender, EventArgs e)
+        private void BtnVytvoritJizdu_Click(object sender, EventArgs e)
         {
-            FormSystem fs = new FormSystem();
-            fs.Hide();
-            FormJizdy fj = new FormJizdy();
-            fj.ShowDialog();
-            
+
         }
     }
 }

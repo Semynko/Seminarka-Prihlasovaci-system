@@ -57,15 +57,29 @@ namespace Autoskola
                             if (heslo == potvrditheslo)
                             {
                                 this.Close();
+                                //tohle dodelat
+                                for(int i = 0;i< FormPrihlaseni.pocetradkujmen; i++)
+                                {
+                                    if (FormPrihlaseni.radjmen[i] != uzjmeno)
+                                    {
+                                        using (StreamWriter jmena = new StreamWriter("jmena.txt", true))
+                                        {
+                                            jmena.WriteLine(uzjmeno.ToString());
+                                            jmena.Close();
+                                        }
+                                        break;
+                                    }
+                                }
                                 using (StreamWriter hesla = new StreamWriter("hesla.txt", true))
                                 {
                                     hesla.WriteLine(heslo.ToString());
                                     hesla.Close();
                                 }
-                                using (StreamWriter jmena = new StreamWriter("jmena.txt", true))
+                                
+                                using(StreamWriter emaily = new StreamWriter("emaily", true))
                                 {
-                                    jmena.WriteLine(uzjmeno.ToString());
-                                    jmena.Close();
+                                    emaily.WriteLine(email.ToString());
+                                    emaily.Close();
                                 }
                                 this.Close();
 
