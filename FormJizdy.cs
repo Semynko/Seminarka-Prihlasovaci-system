@@ -14,25 +14,18 @@ namespace Autoskola
     public partial class FormJizdy : Form
     {
         
-        private string[] jizdalist;
+        public static string[] jizdalist;
         public static string datum;
         public static string text;
         public FormJizdy()
         {
             InitializeComponent();
 
-            using (StreamReader sr = new StreamReader("jizdy.txt"))
-            {
-                text = sr.ReadToEnd();
-                jizdalist = text.Split('\n');
-                MessageBox.Show(text);
-            }
+            VycistHodnotyZJizdy();
 
             for (int i = 0; i < jizdalist.Length; i++)
             {
                 lbxSeznamJizd.Items.Add(jizdalist[i]);
-                
-                
             }
         }
 
@@ -47,9 +40,11 @@ namespace Autoskola
         public static void ZapsatNovouJizdu(string s)
         {
             s = FormJizdy.ZformatovaniDatumu(s);
-            using(StreamWriter sw = new StreamWriter("jizdy.txt"))
+            FormJizdy.VycistHodnotyZJizdy();
+            using (StreamWriter sw = new StreamWriter("jizdy.txt"))
             {
-                sw.WriteLine(text + s + Environment.NewLine);
+                
+                sw.WriteLine(text + s);
             }
             
         }
@@ -66,6 +61,15 @@ namespace Autoskola
             {
                 return s = $"{pomo2[0]} 0{pomo2[1]}:{pomocna[1]}";
             }
+        }
+        public static void VycistHodnotyZJizdy()
+        {
+            using (StreamReader sr = new StreamReader("jizdy.txt"))
+            {
+                text = sr.ReadToEnd();
+                jizdalist = text.Split('\n');
+            }
+
         }
     }
 }
