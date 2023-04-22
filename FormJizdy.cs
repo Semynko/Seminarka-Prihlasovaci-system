@@ -17,16 +17,20 @@ namespace Autoskola
         public static string[] jizdalist;
         public static string datum;
         public static string text;
+        public static FormJizdy fj = new FormJizdy();
         public FormJizdy()
         {
             InitializeComponent();
+            ZapsaniDoListboxu(this);
 
-            VycistHodnotyZJizdy();
+
+
+            /*VycistHodnotyZJizdy();
 
             for (int i = 0; i < jizdalist.Length; i++)
             {
                 lbxSeznamJizd.Items.Add(jizdalist[i]);
-            }
+            }*/
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -43,10 +47,9 @@ namespace Autoskola
             FormJizdy.VycistHodnotyZJizdy();
             using (StreamWriter sw = new StreamWriter("jizdy.txt"))
             {
-                
                 sw.WriteLine(text + s);
             }
-            
+            VycistHodnotyZJizdy();
         }
         public static string ZformatovaniDatumu(string s)
         {
@@ -62,14 +65,23 @@ namespace Autoskola
                 return s = $"{pomo2[0]} 0{pomo2[1]}:{pomocna[1]}";
             }
         }
-        public static void VycistHodnotyZJizdy()
+        public static void ZapsaniDoListboxu(FormJizdy formJizdy)
+        {
+            VycistHodnotyZJizdy();
+
+            for (int i = 0; i < jizdalist.Length; i++)
+            {
+                formJizdy.lbxSeznamJizd.Items.Add(jizdalist[i]);
+            }
+        }
+        
+        public static void VycistHodnotyZJizdy() //funkce pro načtení jizda.txt textu do "string text" a "string[] jizda"
         {
             using (StreamReader sr = new StreamReader("jizdy.txt"))
             {
                 text = sr.ReadToEnd();
                 jizdalist = text.Split('\n');
             }
-
         }
     }
 }
