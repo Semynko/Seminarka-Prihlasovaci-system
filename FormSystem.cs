@@ -16,5 +16,10 @@ namespace Autoskola
         {
             InitializeComponent();
         }
+
+        private void FormSystem_Enter(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

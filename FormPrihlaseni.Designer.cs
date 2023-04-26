@@ -114,6 +114,7 @@ namespace Autoskola
             this.Controls.Add(this.buttonPrihlasit);
             this.Name = "FormPrihlaseni";
             this.Text = "FormPrihlaseni";
+            this.Enter += new System.EventHandler(this.FormPrihlaseni_Enter);
             this.ResumeLayout(false);
             this.PerformLayout();
 

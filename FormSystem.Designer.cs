@@ -38,6 +38,7 @@ namespace Autoskola
             this.ClientSize = new System.Drawing.Size(1083, 578);
             this.Name = "FormSystem";
             this.Text = "FormSystem";
+            this.Enter += new System.EventHandler(this.FormSystem_Enter);
             this.ResumeLayout(false);
 
         }
