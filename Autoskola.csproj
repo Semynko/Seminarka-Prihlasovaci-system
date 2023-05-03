@@ -82,6 +82,7 @@
     <Compile Include="FormVytvoritJizdu.Designer.cs">
       <DependentUpon>FormVytvoritJizdu.cs</DependentUpon>
     </Compile>
+    <Compile Include="Jizda.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">

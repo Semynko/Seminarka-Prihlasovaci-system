@@ -28,45 +28,47 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.BtnVytvoritJizdu = new System.Windows.Forms.Button();
+            this.BtnOdstranitJizdu = new System.Windows.Forms.Button();
+            this.BtnUpravitJizdu = new System.Windows.Forms.Button();
             this.lbxSeznamJizd = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
-            // button1
+            // BtnVytvoritJizdu
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.button1.Location = new System.Drawing.Point(41, 46);
-            this.button1.Margin = new System.Windows.Forms.Padding(4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(264, 140);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Vytvořit jízdy";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.BtnVytvoritJizdu.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.BtnVytvoritJizdu.Location = new System.Drawing.Point(41, 46);
+            this.BtnVytvoritJizdu.Margin = new System.Windows.Forms.Padding(4);
+            this.BtnVytvoritJizdu.Name = "BtnVytvoritJizdu";
+            this.BtnVytvoritJizdu.Size = new System.Drawing.Size(264, 140);
+            this.BtnVytvoritJizdu.TabIndex = 1;
+            this.BtnVytvoritJizdu.Text = "Vytvořit jízdy";
+            this.BtnVytvoritJizdu.UseVisualStyleBackColor = true;
+            this.BtnVytvoritJizdu.Click += new System.EventHandler(this.BtnVytvoritJizdu_Click);
             // 
-            // button3
+            // BtnOdstranitJizdu
             // 
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.button3.Location = new System.Drawing.Point(41, 368);
-            this.button3.Margin = new System.Windows.Forms.Padding(4);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(264, 140);
-            this.button3.TabIndex = 3;
-            this.button3.Text = "Odstranit jízdu";
-            this.button3.UseVisualStyleBackColor = true;
+            this.BtnOdstranitJizdu.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.BtnOdstranitJizdu.Location = new System.Drawing.Point(41, 368);
+            this.BtnOdstranitJizdu.Margin = new System.Windows.Forms.Padding(4);
+            this.BtnOdstranitJizdu.Name = "BtnOdstranitJizdu";
+            this.BtnOdstranitJizdu.Size = new System.Drawing.Size(264, 140);
+            this.BtnOdstranitJizdu.TabIndex = 3;
+            this.BtnOdstranitJizdu.Text = "Odstranit jízdu";
+            this.BtnOdstranitJizdu.UseVisualStyleBackColor = true;
+            this.BtnOdstranitJizdu.Click += new System.EventHandler(this.BtnOdstranitJizdu_Click);
             // 
-            // button2
+            // BtnUpravitJizdu
             // 
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.button2.Location = new System.Drawing.Point(41, 206);
-            this.button2.Margin = new System.Windows.Forms.Padding(4);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(264, 140);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "Upravit jízdu";
-            this.button2.UseVisualStyleBackColor = true;
+            this.BtnUpravitJizdu.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.BtnUpravitJizdu.Location = new System.Drawing.Point(41, 206);
+            this.BtnUpravitJizdu.Margin = new System.Windows.Forms.Padding(4);
+            this.BtnUpravitJizdu.Name = "BtnUpravitJizdu";
+            this.BtnUpravitJizdu.Size = new System.Drawing.Size(264, 140);
+            this.BtnUpravitJizdu.TabIndex = 2;
+            this.BtnUpravitJizdu.Text = "Upravit jízdu";
+            this.BtnUpravitJizdu.UseVisualStyleBackColor = true;
+            this.BtnUpravitJizdu.Click += new System.EventHandler(this.BtnUpravitJizdu_Click);
             // 
             // lbxSeznamJizd
             // 
@@ -85,9 +87,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1092, 658);
             this.Controls.Add(this.lbxSeznamJizd);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.BtnOdstranitJizdu);
+            this.Controls.Add(this.BtnUpravitJizdu);
+            this.Controls.Add(this.BtnVytvoritJizdu);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormJizdy";
             this.Text = "FormJizdy";
@@ -97,9 +99,9 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button BtnVytvoritJizdu;
+        private System.Windows.Forms.Button BtnOdstranitJizdu;
+        private System.Windows.Forms.Button BtnUpravitJizdu;
         private System.Windows.Forms.ListBox lbxSeznamJizd;
     }
 
