@@ -29,7 +29,7 @@ namespace Autoskola
             //MessageBox.Show(dtpJizda.Value.ToString());
             //Jizda.ZapsatNovouJizdu(dtpJizda.Value.ToString());
 
-            Jizda j = new Jizda(dtpJizda.Value.ToString());
+            Jizda j = new Jizda(dtpJizda.Value.ToString(), txtbxStudent.Text, cmbxRidic.Text);
             j.ZapsatNovouJizdu();
         }
 

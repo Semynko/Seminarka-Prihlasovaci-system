@@ -13,10 +13,12 @@ namespace Autoskola
         private string datum;
         //private string zformatovanyDatum;
         private string student;
-        private string ridic;
-        public Jizda(string dat)
+        private string instruktor;
+        public Jizda(string dat, string stud, string inst)
         {
             datum = dat;
+            student = stud;
+            instruktor = inst;
         }
 
 
@@ -43,18 +45,19 @@ namespace Autoskola
         //Funkce na zapsání nově naplánované jízdy do souboru
         //a do listboxu (dodělat)
         {
-            Jizda j = new Jizda(datum);
+            Jizda j = new Jizda(datum, student, instruktor);
             string zformatovanyDatumu = j.ZformatovaniDatumu();
             Jizda.VycistHodnotyZJizdy();
             using (StreamWriter sw = new StreamWriter("jizdy.txt"))
             {
+                string doplneni = $"{zformatovanyDatumu};{student};{instruktor}";
                 if (FormJizdy.text == "")
                 {
-                    sw.Write(zformatovanyDatumu);
+                    sw.Write(doplneni);
                 }
                 else
                 {
-                    sw.Write(FormJizdy.text + Environment.NewLine + zformatovanyDatumu);
+                    sw.Write(FormJizdy.text + Environment.NewLine + doplneni);
                 }
             }
             VycistHodnotyZJizdy();
