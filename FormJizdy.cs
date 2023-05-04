@@ -28,8 +28,11 @@ namespace Autoskola
         private void BtnVytvoritJizdu_Click(object sender, EventArgs e)
         //po zmáčknutí talčítka Vytvořit jídzu
         {
-            FormVytvoritJizdu fvj = new FormVytvoritJizdu();
-            fvj.ShowDialog();
+            FormJizdy fj = this;
+
+
+            /*FormVytvoritJizdu fvj = new FormVytvoritJizdu();
+            fvj.ShowDialog();*/
         }
 
 
@@ -43,6 +46,17 @@ namespace Autoskola
         private void BtnOdstranitJizdu_Click(object sender, EventArgs e)
         //po zmáčknutí tlačítka
         {
+            lbxSeznamJizd.Items.Remove(lbxSeznamJizd.SelectedItem);
+            string t = "";
+            for (int i = 0; i < lbxSeznamJizd.Items.Count; i++)
+            {
+                t += lbxSeznamJizd.Items[i].ToString();
+            }
+
+            using (StreamWriter sw = new StreamWriter("jizdy.txt", false, Encoding.UTF8))
+            {
+                sw.Write(t);
+            }
 
         }
 

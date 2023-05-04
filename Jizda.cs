@@ -31,7 +31,6 @@ namespace Autoskola
             if (pomo2[1].Length == 2)
             {
                 return datum = $"{pomocna[0] + ":" + pomocna[1]}";
-
             }
             else
             {
@@ -48,7 +47,7 @@ namespace Autoskola
             Jizda j = new Jizda(datum, student, instruktor);
             string zformatovanyDatumu = j.ZformatovaniDatumu();
             Jizda.VycistHodnotyZJizdy();
-            using (StreamWriter sw = new StreamWriter("jizdy.txt"))
+            using (StreamWriter sw = new StreamWriter("jizdy.txt", false, Encoding.UTF8))
             {
                 string doplneni = $"{zformatovanyDatumu};{student};{instruktor}";
                 if (FormJizdy.text == "")
