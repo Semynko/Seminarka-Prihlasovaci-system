@@ -13,12 +13,8 @@ namespace Autoskola
 {
     public partial class FormRegistrace : Form
     {
-        public static string uzjmeno;
-        public static string heslo;
-        public static string potvrditheslo;
-        public static string email;
-        
-        
+
+
         public FormRegistrace()
         {
             InitializeComponent();
@@ -26,67 +22,161 @@ namespace Autoskola
 
         private void buttonRegistrovat_Click(object sender, EventArgs e)
         {
-            uzjmeno = textBoxJmeno.Text;
-            heslo = textBoxHeslo.Text;
-            potvrditheslo = textBoxPotvrdit.Text;
-            email = textBoxEmail.Text;
+            Hash hash = new Hash();
+            FormPrihlaseni prihla = new FormPrihlaseni();
+            Uzivatel uz = new Uzivatel(textBoxJmeno.Text, textBoxHeslo.Text, textBoxPotvrdit.Text, textBoxEmail.Text, 0, 0, 0, null, null, null, "", "", "");
             int pocetvelkych = 0;
             int pocetcisel = 0;
-            if(uzjmeno.Length > 0 && email.Length > 0)
+            int pocetzavinacu = 0;
+            int pocettecek = 0;
+            if (uz.Uzjmeno.Length > 0 && uz.Emailus.Length > 0)
             {
-                if(heslo.Length >= 8)
+                if (uz.Heslo.Length >= 8)
                 {
-                    for(int i = 0; i < heslo.Length; i++)
+                    for (int i = 0; i < uz.Heslo.Length; i++)
                     {
-                        if (char.IsUpper(heslo[i]))
+                        if (char.IsUpper(uz.Heslo[i]))
                         {
                             pocetvelkych++;
                         }
                     }
-                    if(pocetvelkych >= 1)
+                    if (pocetvelkych >= 1)
                     {
-                        for (int j = 0;  j< heslo.Length; j++)
+                        for (int j = 0; j < uz.Heslo.Length; j++)
                         {
-                            if (char.IsNumber(heslo[j]))
+                            if (char.IsNumber(uz.Heslo[j]))
                             {
                                 pocetcisel++;
                             }
                         }
                         if (pocetcisel >= 1)
                         {
-                            if (heslo == potvrditheslo)
+                            int indexzavinace = 0;
+                            for (int y = 0; y < uz.Emailus.Length; y++)
                             {
-                                this.Close();
-                                //tohle dodelat
-                                for(int i = 0;i< FormPrihlaseni.pocetradkujmen; i++)
+                                if (char.Equals(uz.Emailus[y], '@'))                                
                                 {
-                                    if (FormPrihlaseni.radjmen[i] != uzjmeno)
+                                    pocetzavinacu++;
+                                    indexzavinace = y;
+                                }
+                            }
+                            if(pocetzavinacu == 1)
+                            {    
+                                int indextecky = 0;
+                                for (int u = 0; u < uz.Emailus.Length; u++)
+                                {
+                                    if (char.Equals(uz.Emailus[u], '.'))
                                     {
-                                        using (StreamWriter jmena = new StreamWriter("jmena.txt", true))
+                                        pocettecek++;
+                                        indextecky = u;
+                                    }
+                                }    
+                                if(indexzavinace+1 < indextecky && pocettecek>0)
+                                {
+                                    if (uz.Heslo == uz.Potvrditheslo)
+                                    {
+                                        using (StreamReader jmena = new StreamReader("jmena.txt"))
                                         {
-                                            jmena.WriteLine(uzjmeno.ToString());
+                                            uz.Pocetradkujmen = 0;
+                                            string radek;
+                                            while ((radek = jmena.ReadLine()) != null)
+                                            {
+                                                uz.Pocetradkujmen++;
+                                                uz.Jmen += (radek + "\n");
+
+                                            }
+                                            if (uz.Pocetradkujmen != 0)
+                                            {
+                                                uz.Radjmen = uz.Jmen.Split('\n');
+                                            }
                                             jmena.Close();
                                         }
-                                        break;
+                                        using (StreamReader emaily = new StreamReader("emaily.txt"))
+                                        {
+                                            uz.Pocetradkuemail = 0;
+                                            string radek;
+                                            while ((radek = emaily.ReadLine()) != null)
+                                            {
+                                                uz.Pocetradkuemail++;
+                                                uz.Email += (radek + "\n");
+                                            }
+                                            if (uz.Pocetradkuemail != 0)
+                                            {
+                                                uz.Rademail = uz.Email.Split('\n');
+                                            }
+                                            emaily.Close();
+                                        }
+                                        if (uz.Pocetradkujmen == 0)
+                                        {
+                                            using (StreamWriter jmena = new StreamWriter("jmena.txt", true))
+                                            {
+                                                jmena.WriteLine(uz.Uzjmeno.ToString());
+                                                jmena.Close();
+                                            }
+                                            using (StreamWriter emaily = new StreamWriter("emaily.txt", true))
+                                            {
+                                                emaily.WriteLine(uz.Emailus.ToString());
+                                                emaily.Close();
+                                            }
+                                            using (StreamWriter hesla = new StreamWriter("hesla.txt", true))
+                                            {
+                                                hesla.WriteLine(hash.PokusOHash(uz.Heslo).ToString());
+                                                hesla.Close();
+                                            }
+                                            this.Hide();
+                                            prihla.ShowDialog();
+                                        }
+                                        if (uz.Pocetradkujmen != 0)
+                                        {
+                                            for (int i = 0; i < uz.Pocetradkujmen; i++)
+                                            {
+                                                if (uz.Radjmen[i].ToString() != uz.Uzjmeno && uz.Rademail[i].ToString() != uz.Emailus)
+                                                {
+                                                    using (StreamWriter jmena = new StreamWriter("jmena.txt", true))
+                                                    {
+                                                        jmena.WriteLine(uz.Uzjmeno.ToString());
+                                                        jmena.Close();
+                                                    }
+                                                    using (StreamWriter emaily = new StreamWriter("emaily.txt", true))
+                                                    {
+                                                        emaily.WriteLine(uz.Emailus.ToString());
+                                                        emaily.Close();
+                                                    }
+                                                    using (StreamWriter hesla = new StreamWriter("hesla.txt", true))
+                                                    {
+                                                        hesla.WriteLine(hash.PokusOHash(uz.Heslo).ToString());
+                                                        hesla.Close();
+                                                    }
+                                                    this.Close();
+                                                    prihla.ShowDialog();
+                                                    break;
+                                                }
+                                                if (uz.Radjmen[i].ToString() == uz.Uzjmeno)
+                                                {
+                                                    MessageBox.Show("Toto uživatelské jméno je již používané!");
+                                                    break;
+                                                }
+                                                if (uz.Rademail[i].ToString() == uz.Emailus)
+                                                {
+                                                    MessageBox.Show("Tento email je již používán!");
+                                                    break;
+                                                }
+                                            }
+                                        }
+                                    }
+                                    else
+                                    {
+                                        MessageBox.Show("Neshodná hesla!");
                                     }
                                 }
-                                using (StreamWriter hesla = new StreamWriter("hesla.txt", true))
+                                else
                                 {
-                                    hesla.WriteLine(heslo.ToString());
-                                    hesla.Close();
-                                }
-                                
-                                using(StreamWriter emaily = new StreamWriter("emaily", true))
-                                {
-                                    emaily.WriteLine(email.ToString());
-                                    emaily.Close();
-                                }
-                                this.Close();
-
+                                    MessageBox.Show("Neplatná emailová adresa!");
+                                } 
                             }
                             else
                             {
-                                MessageBox.Show("Neshodná hesla!");
+                                MessageBox.Show("Neplatná emailová adresa!");
                             }
                         }
                         else
@@ -109,5 +199,10 @@ namespace Autoskola
                 MessageBox.Show("Zadejte jméno a heslo!");
             }
         }
-    }
+
+        private void FormRegistrace_Load(object sender, EventArgs e)
+        {
+
+        }
+    }    
 }

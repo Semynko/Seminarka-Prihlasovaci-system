@@ -130,6 +130,7 @@ namespace Autoskola
             this.Controls.Add(this.labe);
             this.Name = "FormRegistrace";
             this.Text = "FormRegistrace";
+            this.Load += new System.EventHandler(this.FormRegistrace_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

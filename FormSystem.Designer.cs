@@ -51,6 +51,7 @@ namespace Autoskola
             this.Controls.Add(this.button1);
             this.Name = "FormSystem";
             this.Text = "FormSystem";
+            this.Enter += new System.EventHandler(this.FormSystem_Enter);
             this.ResumeLayout(false);
 
         }

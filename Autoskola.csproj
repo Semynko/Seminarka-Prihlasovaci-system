@@ -52,11 +52,13 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormJizdy.cs">
+
+    <Compile Include="FormGenerovat.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormJizdy.Designer.cs">
-      <DependentUpon>FormJizdy.cs</DependentUpon>
+    <Compile Include="FormGenerovat.Designer.cs">
+      <DependentUpon>FormGenerovat.cs</DependentUpon>
+
     </Compile>
     <Compile Include="FormPrihlaseni.cs">
       <SubType>Form</SubType>
@@ -76,20 +78,33 @@
     <Compile Include="FormSystem.Designer.cs">
       <DependentUpon>FormSystem.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormVytvoritJizdu.cs">
+
+    <Compile Include="FormVlastniHeslo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormVytvoritJizdu.Designer.cs">
-      <DependentUpon>FormVytvoritJizdu.cs</DependentUpon>
+    <Compile Include="FormVlastniHeslo.Designer.cs">
+      <DependentUpon>FormVlastniHeslo.cs</DependentUpon>
     </Compile>
-    <Compile Include="Jizda.cs" />
+
+    <Compile Include="FormZapomenute.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormZapomenute.Designer.cs">
+      <DependentUpon>FormZapomenute.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Hash.cs" />
+
+
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Uzivatel.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormJizdy.resx">
-      <DependentUpon>FormJizdy.cs</DependentUpon>
+
+    <EmbeddedResource Include="FormGenerovat.resx">
+      <DependentUpon>FormGenerovat.cs</DependentUpon>
+
     </EmbeddedResource>
     <EmbeddedResource Include="FormPrihlaseni.resx">
       <DependentUpon>FormPrihlaseni.cs</DependentUpon>
@@ -100,8 +115,13 @@
     <EmbeddedResource Include="FormSystem.resx">
       <DependentUpon>FormSystem.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormVytvoritJizdu.resx">
-      <DependentUpon>FormVytvoritJizdu.cs</DependentUpon>
+
+    <EmbeddedResource Include="FormVlastniHeslo.resx">
+      <DependentUpon>FormVlastniHeslo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormZapomenute.resx">
+      <DependentUpon>FormZapomenute.cs</DependentUpon>
+
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
