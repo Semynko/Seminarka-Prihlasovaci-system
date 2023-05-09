@@ -24,12 +24,14 @@ namespace Autoskola
         {
             if (textBoxNoveHeslo.Text == textBoxPotvrdit.Text)
             {
+                labelKopirovat.Text = "Heslo úspěšně zkopírováno!";
                 System.Windows.Forms.Clipboard.SetText(textBoxNoveHeslo.Text);
             }
         }
 
         private void buttonOK_Click(object sender, EventArgs e)
         {
+            labelKopirovat.Text = "";
             int indexemailu = 0;
             Hash hash = new Hash();
             Uzivatel uz = new Uzivatel(FormZapomenute.jmenoZapomel, "", "", FormZapomenute.emailZapomel, 0, 0, 0, null, null, null, "", "", ""); ;
@@ -46,12 +48,10 @@ namespace Autoskola
                         indexemailu = uz.Pocetradkuemail;
                     }
                 }
-
                 if (uz.Pocetradkuemail != 0)
                 {
                     uz.Rademail = uz.Email.Split('\n');
                 }
-
                 emaily.Close();
             }
             using (StreamReader jmena = new StreamReader("jmena.txt"))
@@ -62,14 +62,11 @@ namespace Autoskola
                 {
                     uz.Pocetradkujmen++;
                     uz.Jmen += (radek + "\n");
-
                 }
-
                 if (uz.Pocetradkujmen != 0)
                 {
                     uz.Radjmen = uz.Jmen.Split('\n');
                 }
-
                 jmena.Close();
             }
             using (StreamReader hesla = new StreamReader("hesla.txt"))
@@ -80,12 +77,9 @@ namespace Autoskola
                 {
                     uz.Pocetradkuhes++;
                     uz.Hes += (radek + "\n");
-
                 }
                 uz.Radhes = null;
                 uz.Radhes = uz.Hes.Split('\n');
-                
-
                 hesla.Close();
             }
             if (textBoxNoveHeslo.Text == textBoxPotvrdit.Text)
@@ -112,8 +106,7 @@ namespace Autoskola
                         }
                         if (pocetcisel > 0)
                         {
-                            heslo = textBoxNoveHeslo.Text;
-                            
+                            heslo = textBoxNoveHeslo.Text;    
                         }
                         else
                         {

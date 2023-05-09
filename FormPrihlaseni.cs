@@ -16,29 +16,15 @@ namespace Autoskola
     {
         public FormRegistrace reg = new FormRegistrace();
         public FormSystem sys = new FormSystem();
-       /* 
-        public static string jmen;
-        public static string hes;
-        public static string email;
-        public static int pocetradkuhes = 0;
-        public static int pocetradkujmen = 0;
-        public static int pocetradkuemail = 0;
-        public static string[] radhes;
-        public static string[] radjmen;
-        public static string[] rademail;
-        */
+       
         public FormPrihlaseni()
         {
-            InitializeComponent();
-            
+            InitializeComponent();    
         }
 
         private void buttonRegistr_Click(object sender, EventArgs e)
-        {
-
-            
-            reg.ShowDialog();
-            
+        {     
+            reg.ShowDialog();     
         }
 
         private void buttonPrihlasit_Click(object sender, EventArgs e)
@@ -57,8 +43,6 @@ namespace Autoskola
                 }
                 uz.Radhes = null;
                 uz.Radhes = uz.Hes.Split('\n');
-
-
                 hesla.Close();
             }
             using (StreamReader jmena = new StreamReader("jmena.txt"))
@@ -68,13 +52,8 @@ namespace Autoskola
                 while ((radek = jmena.ReadLine()) != null)
                 {
                     uz.Pocetradkujmen++;
-                    uz.Jmen += (radek + "\n");
-                    
+                    uz.Jmen += (radek + "\n");    
                 }
-                //FormRegistrace.radjmen = null;
-                //FormRegistrace.radjmen = FormRegistrace.jmen.Split('\n');
-
-
                 jmena.Close();
             }
             using (StreamReader emaily = new StreamReader("emaily.txt"))
@@ -86,8 +65,6 @@ namespace Autoskola
                     uz.Pocetradkuemail++;
                     uz.Email += (radek + "\n");
                 }
-                //FormRegistrace.rademail = null;
-                //FormRegistrace.rademail = FormRegistrace.email.Split('\n');
                 emaily.Close();
             }
             string pomocnahes = textBoxHeslo.Text;
@@ -98,38 +75,19 @@ namespace Autoskola
                 uz.Radjmen = uz.Jmen.Split('\n');
                 uz.Rademail = null;
                 uz.Rademail = uz.Email.Split('\n');
-                
-                /*
-                MessageBox.Show(FormRegistrace.radhes[i].ToString().Trim());
-                MessageBox.Show(FormRegistrace.radjmen[i].ToString().Trim());
-                MessageBox.Show("Prvni v radhes:" + FormRegistrace.radhes[0].ToString().Trim());
-                MessageBox.Show("Prvni v radjmen: " + FormRegistrace.radjmen[0].ToString().Trim());
-                MessageBox.Show("Druhy v radhes:" + FormRegistrace.radhes[1].ToString().Trim());
-                MessageBox.Show("Druhy v radjmen: " + FormRegistrace.radjmen[1].ToString().Trim());
-                MessageBox.Show("Počet radku v heslech:" + FormRegistrace.pocetradkuhes.ToString());
-                MessageBox.Show("Počet radku v jmenech:" + FormRegistrace.pocetradkujmen.ToString());
-                MessageBox.Show("Velikost poli:" + Environment.NewLine + "Radhes:" + FormRegistrace.radhes.Length.ToString() + Environment.NewLine + "Radjmen:" + FormRegistrace.radjmen.Length.ToString());
-                */
+ 
                 if (hash.PokusOHash(pomocnahes) == uz.Radhes[i].ToString() && pomocnajmen == uz.Radjmen[i].ToString())
                 {
-                    this.Hide();
+                    this.Close();
                     sys.ShowDialog();
-                    
-                    break;
-                    
+                    break;   
                 }
                 if (hash.PokusOHash(pomocnahes) != uz.Radhes[i].ToString() && pomocnajmen == uz.Radjmen[i].ToString()) 
-                {
-                    MessageBox.Show("hash pomocny:" + hash.PokusOHash(pomocnahes) + "\n" + "hash radhes na indexu " + i.ToString() + ": " + hash.PokusOHash(uz.Radhes[i].ToString()));
+                {    
                     MessageBox.Show("Špatné heslo!");
                     break;
                 }
-                /*
-                else
-                {
-                    MessageBox.Show("rahes na indexu " + i.ToString() + " = " + uz.Radhes[i].ToString() + "\n" + "radjmen na indexu " + i.ToString() + " = " + uz.Radjmen[i].ToString());
-                }
-                */
+
             }
             
         }

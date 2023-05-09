@@ -25,10 +25,6 @@ namespace Autoskola
             Hash hash = new Hash();
             FormPrihlaseni prihla = new FormPrihlaseni();
             Uzivatel uz = new Uzivatel(textBoxJmeno.Text, textBoxHeslo.Text, textBoxPotvrdit.Text, textBoxEmail.Text, 0, 0, 0, null, null, null, "", "", "");
-            //uzjmeno = textBoxJmeno.Text;
-            //heslo = textBoxHeslo.Text;
-            //potvrditheslo = textBoxPotvrdit.Text;
-            //email = textBoxEmail.Text;
             int pocetvelkych = 0;
             int pocetcisel = 0;
             int pocetzavinacu = 0;
@@ -65,8 +61,7 @@ namespace Autoskola
                                 }
                             }
                             if(pocetzavinacu == 1)
-                            {
-                                
+                            {    
                                 int indextecky = 0;
                                 for (int u = 0; u < uz.Emailus.Length; u++)
                                 {
@@ -75,9 +70,7 @@ namespace Autoskola
                                         pocettecek++;
                                         indextecky = u;
                                     }
-                                }
-                                MessageBox.Show("Počet teček: " + pocettecek.ToString() + "\n" + "Počet zavináčů: " + pocetzavinacu.ToString());
-                                MessageBox.Show("Index zavinace: " + indexzavinace.ToString() + "\n" + "Index tečky" + indextecky.ToString());
+                                }    
                                 if(indexzavinace+1 < indextecky && pocettecek>0)
                                 {
                                     if (uz.Heslo == uz.Potvrditheslo)
@@ -92,16 +85,10 @@ namespace Autoskola
                                                 uz.Jmen += (radek + "\n");
 
                                             }
-
                                             if (uz.Pocetradkujmen != 0)
                                             {
                                                 uz.Radjmen = uz.Jmen.Split('\n');
                                             }
-
-
-
-
-
                                             jmena.Close();
                                         }
                                         using (StreamReader emaily = new StreamReader("emaily.txt"))
@@ -113,19 +100,16 @@ namespace Autoskola
                                                 uz.Pocetradkuemail++;
                                                 uz.Email += (radek + "\n");
                                             }
-
                                             if (uz.Pocetradkuemail != 0)
                                             {
                                                 uz.Rademail = uz.Email.Split('\n');
                                             }
-
                                             emaily.Close();
                                         }
                                         if (uz.Pocetradkujmen == 0)
                                         {
                                             using (StreamWriter jmena = new StreamWriter("jmena.txt", true))
                                             {
-
                                                 jmena.WriteLine(uz.Uzjmeno.ToString());
                                                 jmena.Close();
                                             }
@@ -136,25 +120,20 @@ namespace Autoskola
                                             }
                                             using (StreamWriter hesla = new StreamWriter("hesla.txt", true))
                                             {
-
                                                 hesla.WriteLine(hash.PokusOHash(uz.Heslo).ToString());
                                                 hesla.Close();
                                             }
                                             this.Hide();
-
                                             prihla.ShowDialog();
-
                                         }
                                         if (uz.Pocetradkujmen != 0)
                                         {
                                             for (int i = 0; i < uz.Pocetradkujmen; i++)
                                             {
-
                                                 if (uz.Radjmen[i].ToString() != uz.Uzjmeno && uz.Rademail[i].ToString() != uz.Emailus)
                                                 {
                                                     using (StreamWriter jmena = new StreamWriter("jmena.txt", true))
                                                     {
-
                                                         jmena.WriteLine(uz.Uzjmeno.ToString());
                                                         jmena.Close();
                                                     }
@@ -165,15 +144,10 @@ namespace Autoskola
                                                     }
                                                     using (StreamWriter hesla = new StreamWriter("hesla.txt", true))
                                                     {
-
-
-
-
                                                         hesla.WriteLine(hash.PokusOHash(uz.Heslo).ToString());
                                                         hesla.Close();
                                                     }
-                                                    this.Hide();
-
+                                                    this.Close();
                                                     prihla.ShowDialog();
                                                     break;
                                                 }
@@ -187,21 +161,8 @@ namespace Autoskola
                                                     MessageBox.Show("Tento email je již používán!");
                                                     break;
                                                 }
-
-
-
                                             }
                                         }
-
-
-
-                                        //tohle dodelat
-
-
-
-
-
-
                                     }
                                     else
                                     {
@@ -211,8 +172,7 @@ namespace Autoskola
                                 else
                                 {
                                     MessageBox.Show("Neplatná emailová adresa!");
-                                }
-                                
+                                } 
                             }
                             else
                             {

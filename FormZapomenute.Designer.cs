@@ -67,10 +67,10 @@
             this.radioButtonZadane.AutoSize = true;
             this.radioButtonZadane.Location = new System.Drawing.Point(117, 197);
             this.radioButtonZadane.Name = "radioButtonZadane";
-            this.radioButtonZadane.Size = new System.Drawing.Size(81, 17);
+            this.radioButtonZadane.Size = new System.Drawing.Size(116, 17);
             this.radioButtonZadane.TabIndex = 3;
             this.radioButtonZadane.TabStop = true;
-            this.radioButtonZadane.Text = "Zadat heslo";
+            this.radioButtonZadane.Text = "Zadat vlastní heslo";
             this.radioButtonZadane.UseVisualStyleBackColor = true;
             this.radioButtonZadane.CheckedChanged += new System.EventHandler(this.radioButtonZadane_CheckedChanged);
             // 

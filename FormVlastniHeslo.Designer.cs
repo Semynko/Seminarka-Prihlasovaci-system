@@ -34,6 +34,7 @@
             this.buttonCopy = new System.Windows.Forms.Button();
             this.labelNoveHeslo = new System.Windows.Forms.Label();
             this.labelPotvrdit = new System.Windows.Forms.Label();
+            this.labelKopirovat = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // textBoxNoveHeslo
@@ -89,11 +90,20 @@
             this.labelPotvrdit.TabIndex = 5;
             this.labelPotvrdit.Text = "Potvrdit heslo:";
             // 
+            // labelKopirovat
+            // 
+            this.labelKopirovat.AutoSize = true;
+            this.labelKopirovat.Location = new System.Drawing.Point(105, 103);
+            this.labelKopirovat.Name = "labelKopirovat";
+            this.labelKopirovat.Size = new System.Drawing.Size(0, 13);
+            this.labelKopirovat.TabIndex = 6;
+            // 
             // FormVlastniHeslo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(374, 189);
+            this.Controls.Add(this.labelKopirovat);
             this.Controls.Add(this.labelPotvrdit);
             this.Controls.Add(this.labelNoveHeslo);
             this.Controls.Add(this.buttonCopy);
@@ -115,5 +125,6 @@
         private System.Windows.Forms.Button buttonCopy;
         private System.Windows.Forms.Label labelNoveHeslo;
         private System.Windows.Forms.Label labelPotvrdit;
+        private System.Windows.Forms.Label labelKopirovat;
     }
 }

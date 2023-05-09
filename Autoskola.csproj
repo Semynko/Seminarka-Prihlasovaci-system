@@ -52,6 +52,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormGenerovat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormGenerovat.Designer.cs">
+      <DependentUpon>FormGenerovat.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormPrihlaseni.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -88,6 +94,9 @@
     <Compile Include="Uzivatel.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormGenerovat.resx">
+      <DependentUpon>FormGenerovat.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormPrihlaseni.resx">
       <DependentUpon>FormPrihlaseni.cs</DependentUpon>
