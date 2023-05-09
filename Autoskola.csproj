@@ -85,6 +85,7 @@
     <Compile Include="FormVlastniHeslo.Designer.cs">
       <DependentUpon>FormVlastniHeslo.cs</DependentUpon>
     </Compile>
+
     <Compile Include="FormZapomenute.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -92,6 +93,7 @@
       <DependentUpon>FormZapomenute.cs</DependentUpon>
     </Compile>
     <Compile Include="Hash.cs" />
+
 
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

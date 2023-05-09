@@ -13,59 +13,73 @@ namespace Autoskola
 {
     public partial class FormJizdy : Form
     {
-        
-        private string[] jizdalist;
-        public static string datum;
-        public static string text;
+        //Pomocné globální proměné
+        public static string[] jizdalist; //pole jednotlivých záznamů
+        public static string datum; //
+        public static string text; //celkový text bez úprav z jizdy.txt
         public FormJizdy()
         {
             InitializeComponent();
-
-            using (StreamReader sr = new StreamReader("jizdy.txt"))
-            {
-                text = sr.ReadToEnd();
-                jizdalist = text.Split('\n');
-                MessageBox.Show(text);
-            }
-
-            for (int i = 0; i < jizdalist.Length; i++)
-            {
-                lbxSeznamJizd.Items.Add(jizdalist[i]);
-                
-                
-            }
+            ZapsaniDoListboxu(this);
         }
 
-        private void button1_Click(object sender, EventArgs e)
+
+        //----------------------Funkce komponent----------------------
+        private void BtnVytvoritJizdu_Click(object sender, EventArgs e)
+        //po zmáčknutí talčítka Vytvořit jídzu
         {
+            //FormJizdy fj = this;
+
+
             FormVytvoritJizdu fvj = new FormVytvoritJizdu();
             fvj.ShowDialog();
         }
 
-        //Funkce na zapsání nově naplánované jízdy do souboru
-        //a do listboxu 
-        public static void ZapsatNovouJizdu(string s)
-        {
-            s = FormJizdy.ZformatovaniDatumu(s);
-            using(StreamWriter sw = new StreamWriter("jizdy.txt"))
-            {
-                sw.WriteLine(text + s + Environment.NewLine);
-            }
-            
-        }
-        public static string ZformatovaniDatumu(string s)
-        {
-            string[] pomocna = s.Split(':');
-            string[] pomo2 = pomocna[0].Split(' ');
-            if (pomo2[1].Length == 2)
-            {
-                return s = $"{pomocna[0] + ":" + pomocna[1]}";
 
-            }
-            else
-            {
-                return s = $"{pomo2[0]} 0{pomo2[1]}:{pomocna[1]}";
-            }
+        private void BtnUpravitJizdu_Click(object sender, EventArgs e)
+        //po zmáčknutí tlačítka Upravit jízdu
+        {
+
         }
+
+
+        private void BtnOdstranitJizdu_Click(object sender, EventArgs e)
+        //po zmáčknutí tlačítka
+        {
+            lbxSeznamJizd.Items.Remove(lbxSeznamJizd.SelectedItem);
+            string t = "";
+            for (int i = 0; i < lbxSeznamJizd.Items.Count; i++)
+            {
+                t += lbxSeznamJizd.Items[i].ToString();
+            }
+
+            using (StreamWriter sw = new StreamWriter("jizdy.txt", false, Encoding.UTF8))
+            {
+                sw.Write(t);
+            }
+
+        }
+
+
+
+
+        //-------------------Ostatní funkce-----------------------
+
+
+
+
+        public static void ZapsaniDoListboxu(FormJizdy formJizdy)
+        //Funkce sloužící pro zapsání hodnot z jizdy.txt to list boxu
+        {
+            Jizda.VycistHodnotyZJizdy();
+
+            for (int i = 0; i < jizdalist.Length; i++)
+            {
+                formJizdy.lbxSeznamJizd.Items.Add(jizdalist[i]);
+            }
+            formJizdy.lbxSeznamJizd.Refresh();
+        }
+
+        
     }
 }
