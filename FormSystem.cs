@@ -17,11 +17,10 @@ namespace Autoskola
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+
+        private void FormSystem_Enter(object sender, EventArgs e)
         {
 
-            FormJizdy fj = new FormJizdy();
-            fj.ShowDialog();
             
         }
     }

@@ -20,10 +20,11 @@ namespace Autoskola
 
         private void buttonPrihlasit_Click(object sender, EventArgs e)
         {
+            this.Hide();
             FormPrihlaseni fo = new FormPrihlaseni();
             fo.ShowDialog
                 ();
-            this.Close();
+            
         }
     }
 }
