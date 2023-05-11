@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using System.Diagnostics;
+using System.Security.Policy;
 
 namespace Autoskola
 {
@@ -23,8 +24,100 @@ namespace Autoskola
         }
 
         private void buttonRegistr_Click(object sender, EventArgs e)
-        {     
-            reg.ShowDialog();     
+        {
+            Hash hash = new Hash();
+            
+
+            if (reg.ShowDialog() == DialogResult.OK)
+            {
+                Uzivatel uz = new Uzivatel(FormRegistrace.jmeno, FormRegistrace.heslo, FormRegistrace.potvrdit, FormRegistrace.email, 0, 0, 0, null, null, null, "", "", "");
+                using (StreamReader jmena = new StreamReader("jmena.txt"))
+                {
+                    uz.Pocetradkujmen = 0;
+                    string radek;
+                    while ((radek = jmena.ReadLine()) != null)
+                    {
+                        uz.Pocetradkujmen++;
+                        uz.Jmen += (radek + "\n");
+
+                    }
+                    if (uz.Pocetradkujmen != 0)
+                    {
+                        uz.Radjmen = uz.Jmen.Split('\n');
+                    }
+                    jmena.Close();
+                }
+                using (StreamReader emaily = new StreamReader("emaily.txt"))
+                {
+                    uz.Pocetradkuemail = 0;
+                    string radek;
+                    while ((radek = emaily.ReadLine()) != null)
+                    {
+                        uz.Pocetradkuemail++;
+                        uz.Email += (radek + "\n");
+                    }
+                    if (uz.Pocetradkuemail != 0)
+                    {
+                        uz.Rademail = uz.Email.Split('\n');
+                    }
+                    emaily.Close();
+                }
+                if (uz.Pocetradkujmen == 0)
+                {
+                    using (StreamWriter jmena = new StreamWriter("jmena.txt", true))
+                    {
+                        jmena.WriteLine(uz.Uzjmeno.ToString());
+                        jmena.Close();
+                    }
+                    using (StreamWriter emaily = new StreamWriter("emaily.txt", true))
+                    {
+                        emaily.WriteLine(uz.Emailus.ToString());
+                        emaily.Close();
+                    }
+                    using (StreamWriter hesla = new StreamWriter("hesla.txt", true))
+                    {
+                        hesla.WriteLine(hash.PokusOHash(uz.Heslo).ToString());
+                        hesla.Close();
+                    }
+
+                }
+                if (uz.Pocetradkujmen != 0)
+                {
+                    for (int i = 0; i < uz.Pocetradkujmen; i++)
+                    {
+                        if (uz.Radjmen[i].ToString() != uz.Uzjmeno && uz.Rademail[i].ToString() != uz.Emailus)
+                        {
+                            using (StreamWriter jmena = new StreamWriter("jmena.txt", true))
+                            {
+                                jmena.WriteLine(uz.Uzjmeno.ToString());
+                                jmena.Close();
+                            }
+                            using (StreamWriter emaily = new StreamWriter("emaily.txt", true))
+                            {
+                                emaily.WriteLine(uz.Emailus.ToString());
+                                emaily.Close();
+                            }
+                            using (StreamWriter hesla = new StreamWriter("hesla.txt", true))
+                            {
+                                hesla.WriteLine(hash.PokusOHash(uz.Heslo).ToString());
+                                hesla.Close();
+                            }
+
+                            break;
+                        }
+                        if (uz.Radjmen[i].ToString() == uz.Uzjmeno)
+                        {
+                            MessageBox.Show("Toto uživatelské jméno je již používané!");
+                            break;
+                        }
+                        if (uz.Rademail[i].ToString() == uz.Emailus)
+                        {
+                            MessageBox.Show("Tento email je již používán!");
+                            break;
+                        }
+                    }
+                }
+            }
         }
 
         private void buttonPrihlasit_Click(object sender, EventArgs e)
@@ -94,13 +187,15 @@ namespace Autoskola
 
         private void buttonZapomel_Click(object sender, EventArgs e)
         {
+            
             FormZapomenute fr = new FormZapomenute();
             fr.ShowDialog();
+            this.Close();
         }
 
         private void FormPrihlaseni_Enter(object sender, EventArgs e)
         {
-            reg.Close();
+            
         }
     }
 }
