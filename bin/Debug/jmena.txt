@@ -1,4 +1,10 @@
 admin
 guest
-guest2
-honza
+ondra
+pasek
+fungus
+heslo
+vasek
+gustav
+trump
+biden

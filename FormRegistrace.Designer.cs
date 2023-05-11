@@ -78,6 +78,7 @@ namespace Autoskola
             // 
             // buttonRegistrovat
             // 
+            this.buttonRegistrovat.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.buttonRegistrovat.Location = new System.Drawing.Point(92, 234);
             this.buttonRegistrovat.Name = "buttonRegistrovat";
             this.buttonRegistrovat.Size = new System.Drawing.Size(217, 64);

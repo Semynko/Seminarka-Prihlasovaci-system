@@ -20,11 +20,19 @@ namespace Autoskola
 
         private void buttonPrihlasit_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            
             FormPrihlaseni fo = new FormPrihlaseni();
             fo.ShowDialog
                 ();
             
+            
+        }
+
+        private void buttonInformace_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Autoři:" + "\n" + "Michal Voráček" + "\n" + "Miroslav Petruška"
+                + "\n" + "Ondřej Semenec" + "\n" + "Adam Kašpar" + "\n" +"\n" +"Aplikace slouží pro rezervaci cvičných jízd při řidičském výcviku." + "\n" + 
+                "Uživatel se musí podle daných kritérií registrovat do systému, po úspěšné registraci a přihlášení je přesměrován na samotnou rezervaci jízd");
         }
     }
 }

@@ -31,12 +31,13 @@ namespace Autoskola
         {
             this.buttonPrihlasit = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.buttonInformace = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // buttonPrihlasit
             // 
             this.buttonPrihlasit.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonPrihlasit.Location = new System.Drawing.Point(78, 223);
+            this.buttonPrihlasit.Location = new System.Drawing.Point(75, 181);
             this.buttonPrihlasit.Name = "buttonPrihlasit";
             this.buttonPrihlasit.Size = new System.Drawing.Size(872, 293);
             this.buttonPrihlasit.TabIndex = 0;
@@ -54,11 +55,22 @@ namespace Autoskola
             this.label1.TabIndex = 1;
             this.label1.Text = "AUTOŠKOLA";
             // 
+            // buttonInformace
+            // 
+            this.buttonInformace.Location = new System.Drawing.Point(872, 533);
+            this.buttonInformace.Name = "buttonInformace";
+            this.buttonInformace.Size = new System.Drawing.Size(75, 23);
+            this.buttonInformace.TabIndex = 2;
+            this.buttonInformace.Text = "O aplikaci";
+            this.buttonInformace.UseVisualStyleBackColor = true;
+            this.buttonInformace.Click += new System.EventHandler(this.buttonInformace_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1035, 595);
+            this.Controls.Add(this.buttonInformace);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.buttonPrihlasit);
             this.Name = "Form1";
@@ -72,6 +84,7 @@ namespace Autoskola
 
         private System.Windows.Forms.Button buttonPrihlasit;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button buttonInformace;
     }
 }
 
