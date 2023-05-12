@@ -270,6 +270,7 @@ namespace Autoskola
             heslo = hashovaci;
             return heslo;
             //jj
+            //nn
         }
     }
 }
