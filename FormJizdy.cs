@@ -28,11 +28,11 @@ namespace Autoskola
         private void BtnVytvoritJizdu_Click(object sender, EventArgs e)
         //po zmáčknutí talčítka Vytvořit jídzu
         {
-            FormJizdy fj = this;
+            //FormJizdy fj = this;
 
 
-            /*FormVytvoritJizdu fvj = new FormVytvoritJizdu();
-            fvj.ShowDialog();*/
+            FormVytvoritJizdu fvj = new FormVytvoritJizdu();
+            fvj.ShowDialog();
         }
 
 
