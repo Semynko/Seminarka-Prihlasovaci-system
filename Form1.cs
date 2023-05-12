@@ -22,8 +22,7 @@ namespace Autoskola
         {
             
             FormPrihlaseni fo = new FormPrihlaseni();
-            fo.ShowDialog
-                ();
+            fo.ShowDialog(); //s
             
             
         }
