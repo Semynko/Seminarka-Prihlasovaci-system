@@ -38,6 +38,7 @@ namespace Autoskola
             this.textBoxEmail = new System.Windows.Forms.TextBox();
             this.textBoxHeslo = new System.Windows.Forms.TextBox();
             this.textBoxPotvrdit = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // labe
@@ -79,7 +80,7 @@ namespace Autoskola
             // buttonRegistrovat
             // 
             this.buttonRegistrovat.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.buttonRegistrovat.Location = new System.Drawing.Point(92, 234);
+            this.buttonRegistrovat.Location = new System.Drawing.Point(93, 214);
             this.buttonRegistrovat.Name = "buttonRegistrovat";
             this.buttonRegistrovat.Size = new System.Drawing.Size(217, 64);
             this.buttonRegistrovat.TabIndex = 4;
@@ -115,11 +116,22 @@ namespace Autoskola
             this.textBoxPotvrdit.Size = new System.Drawing.Size(285, 20);
             this.textBoxPotvrdit.TabIndex = 8;
             // 
+            // button1
+            // 
+            this.button1.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.button1.Location = new System.Drawing.Point(235, 295);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 9;
+            this.button1.Text = "Zrušit";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // FormRegistrace
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(410, 345);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.textBoxPotvrdit);
             this.Controls.Add(this.textBoxHeslo);
             this.Controls.Add(this.textBoxEmail);
@@ -148,5 +160,6 @@ namespace Autoskola
         private System.Windows.Forms.TextBox textBoxEmail;
         private System.Windows.Forms.TextBox textBoxHeslo;
         private System.Windows.Forms.TextBox textBoxPotvrdit;
+        private System.Windows.Forms.Button button1;
     }
 }

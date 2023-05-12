@@ -57,7 +57,7 @@ namespace Autoskola
             // 
             // buttonInformace
             // 
-            this.buttonInformace.Location = new System.Drawing.Point(872, 533);
+            this.buttonInformace.Location = new System.Drawing.Point(872, 534);
             this.buttonInformace.Name = "buttonInformace";
             this.buttonInformace.Size = new System.Drawing.Size(75, 23);
             this.buttonInformace.TabIndex = 2;
