@@ -266,7 +266,7 @@ namespace Autoskola
                 }
 
             }
-            //gitpokus
+            //gitpokus //h
             heslo = hashovaci;
             return heslo;
             //jj

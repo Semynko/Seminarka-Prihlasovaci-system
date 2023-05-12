@@ -23,5 +23,11 @@ namespace Autoskola
 
             
         }
+
+        private void BtnJizdy_Click(object sender, EventArgs e)
+        {
+            FormJizdy fj = new FormJizdy();
+            fj.Show();
+        }
     }
 }
