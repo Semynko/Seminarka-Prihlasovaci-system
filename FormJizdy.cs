@@ -29,10 +29,13 @@ namespace Autoskola
         //po zmáčknutí talčítka Vytvořit jídzu
         {
             //FormJizdy fj = this;
-
+            Jizda jizda = new Jizda()
 
             FormVytvoritJizdu fvj = new FormVytvoritJizdu();
-            fvj.ShowDialog();
+            if(fvj.ShowDialog() == DialogResult.OK)
+            {
+
+            }
         }
 
 
