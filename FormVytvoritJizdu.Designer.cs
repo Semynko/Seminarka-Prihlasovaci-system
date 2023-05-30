@@ -76,6 +76,7 @@
             this.cmbxRidic.Name = "cmbxRidic";
             this.cmbxRidic.Size = new System.Drawing.Size(276, 32);
             this.cmbxRidic.TabIndex = 5;
+            this.cmbxRidic.SelectedIndexChanged += new System.EventHandler(this.cmbxRidic_SelectedIndexChanged);
             // 
             // label1
             // 
