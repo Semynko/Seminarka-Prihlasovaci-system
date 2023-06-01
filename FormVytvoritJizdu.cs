@@ -13,6 +13,11 @@ namespace Autoskola
 {
     public partial class FormVytvoritJizdu : Form
     {
+        
+        public static string datum; //
+        public static string text; //celkový text bez úprav z jizdy.txt
+        public static string instrukt;
+        public static string student;
         public FormVytvoritJizdu()
         {
             InitializeComponent();
@@ -34,12 +39,14 @@ namespace Autoskola
         private void BtnVytvoritJizdu_Click(object sender, EventArgs e)
         //Funkce po zmáčknutí tlačítka Vytvořit jízdu
         {
-            FormJizdy.datum = dtpJizda.Text;
+            instrukt = cmbxRidic.Text;
+            datum = dtpJizda.Value.ToString();
+            student = txtbxStudent.Text;
+
             //MessageBox.Show(dtpJizda.Value.ToString());
             //Jizda.ZapsatNovouJizdu(dtpJizda.Value.ToString());
+            
 
-            Jizda j = new Jizda(dtpJizda.Value.ToString(), txtbxStudent.Text, cmbxRidic.Text);
-            j.ZapsatNovouJizdu();
         }
 
         private void FormVytvoritJizdu_Load(object sender, EventArgs e)
@@ -47,6 +54,11 @@ namespace Autoskola
             FormJizdy fj = new FormJizdy();
             fj.Refresh();
             //qfj.lbx
+        }
+
+        private void cmbxRidic_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
         }
     }
 }

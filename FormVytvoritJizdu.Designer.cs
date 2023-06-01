@@ -39,6 +39,7 @@
             // 
             // BtnVytvoritJizdu
             // 
+            this.BtnVytvoritJizdu.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.BtnVytvoritJizdu.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.BtnVytvoritJizdu.Location = new System.Drawing.Point(13, 266);
             this.BtnVytvoritJizdu.Name = "BtnVytvoritJizdu";
@@ -61,7 +62,7 @@
             // 
             this.txtbxStudent.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.txtbxStudent.Location = new System.Drawing.Point(12, 119);
-            this.txtbxStudent.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtbxStudent.Margin = new System.Windows.Forms.Padding(2);
             this.txtbxStudent.Name = "txtbxStudent";
             this.txtbxStudent.Size = new System.Drawing.Size(276, 28);
             this.txtbxStudent.TabIndex = 4;
@@ -71,10 +72,11 @@
             this.cmbxRidic.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.cmbxRidic.FormattingEnabled = true;
             this.cmbxRidic.Location = new System.Drawing.Point(12, 194);
-            this.cmbxRidic.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cmbxRidic.Margin = new System.Windows.Forms.Padding(2);
             this.cmbxRidic.Name = "cmbxRidic";
             this.cmbxRidic.Size = new System.Drawing.Size(276, 32);
             this.cmbxRidic.TabIndex = 5;
+            this.cmbxRidic.SelectedIndexChanged += new System.EventHandler(this.cmbxRidic_SelectedIndexChanged);
             // 
             // label1
             // 

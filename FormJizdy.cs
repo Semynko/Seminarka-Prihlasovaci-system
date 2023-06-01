@@ -15,8 +15,7 @@ namespace Autoskola
     {
         //Pomocné globální proměné
         public static string[] jizdalist; //pole jednotlivých záznamů
-        public static string datum; //
-        public static string text; //celkový text bez úprav z jizdy.txt
+        public static string text;
         public FormJizdy()
         {
             InitializeComponent();
@@ -29,10 +28,15 @@ namespace Autoskola
         //po zmáčknutí talčítka Vytvořit jídzu
         {
             //FormJizdy fj = this;
-
+            
 
             FormVytvoritJizdu fvj = new FormVytvoritJizdu();
-            fvj.ShowDialog();
+            if(fvj.ShowDialog() == DialogResult.OK)
+            {
+                Jizda j = new Jizda(FormVytvoritJizdu.datum, FormVytvoritJizdu.student, FormVytvoritJizdu.instrukt);
+                j.ZapsatNovouJizdu();
+                ZapsaniHned(FormVytvoritJizdu.datum, FormVytvoritJizdu.student, FormVytvoritJizdu.instrukt);
+            }
         }
 
 
@@ -79,7 +83,10 @@ namespace Autoskola
             }
             formJizdy.lbxSeznamJizd.Refresh();
         }
-
+        public void ZapsaniHned(string datum, string student, string instrkutor)
+        {
+            lbxSeznamJizd.Items.Add(datum + ";" + student + ";" + instrkutor);
+        }
         
     }
 }
