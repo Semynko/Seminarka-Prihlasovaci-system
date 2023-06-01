@@ -53,7 +53,7 @@ namespace Autoskola
         {
             FormJizdy fj = new FormJizdy();
             fj.Refresh();
-            //qfj.lbx
+            //qfj.lbx.
         }
 
         private void cmbxRidic_SelectedIndexChanged(object sender, EventArgs e)
