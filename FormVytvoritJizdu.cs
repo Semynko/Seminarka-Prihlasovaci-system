@@ -32,7 +32,7 @@ namespace Autoskola
         }
 
         private void BtnVytvoritJizdu_Click(object sender, EventArgs e)
-        //Funkce po zmáčknutí tlačítka Vytvořit jízdu
+        //Funkce po zmáčknutí tlačítka Vytvořit jízdu.
         {
             FormJizdy.datum = dtpJizda.Text;
             //MessageBox.Show(dtpJizda.Value.ToString());
